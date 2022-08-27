@@ -20,22 +20,28 @@
 
 ![infra-k8s](./img/infra-k8s-security.png)
 
-- ✅ limiting access to the Kubernetes API server except from trusted networks.
-  - Network access to API Server (Control plane)
-  - Network access to Nodes (nodes)
-- ✅ Kubernetes access to Cloud Provider API, apply the least privilege.
-  - Workload identity in Cloud providers: Employ workload identity to tie RBAC to the cloud provider’s authentication mechanism.
-- ✅ Access to etcd
-  - etcd Encryption
-  - TLS communication
-  - is access limited to control plane?
-- ✅ host security: OpenSCAP, OVAL. Validate if it's following the CIS benchmark. `Compliance`
-- ✅  Updates and patches
-  - Update the kubernetes version with the fixed bugs
-  - Add-ons installed on the cluster use cert-manager to help keep your site's external certificated up to date.
+- ✅ Limiting access to the Kubernetes API server except from trusted networks.
+  - Limit access to Network API Server (Control plane)
+  - Limit access to Network Nodes
+  > Ports and Protocols - [kubernetes official doc](https://kubernetes.io/docs/reference/ports-and-protocols/)
 
->> Network boundaries: Control network access
-- [Ports and Protocols by kubernetes.io](https://kubernetes.io/docs/reference/ports-and-protocols/)
+- ✅ Limiting access to Kubernetes Cloud Provider API. Apply the least privilege in the Authorization IAM.
+- ✅ Limiting access to etcd
+  - Apply etcd Encryption
+  - Use TLS communication
+  - is ETCD access limited to control plane?
+- ✅ Apply host security benchmark: OpenSCAP, OVAL. Validate if your hosts are following the CIS benchmark. `Compliance`
+- ✅ Updates and patches
+  - Update the kubernetes version with the fixed bugs
+- ✅ Certs: SSL/TLS for your Kubernetes Cluster
+  - Automated issuance and renewal of certificates to secure Ingress with TLS
+  - Secure pod-to pod communication with mTLS using private PKI Issuers
+  - Supports certificate use cases for web facing and internal workloads
+
+  > [cert-manager](https://cert-manager.io/) is a X.509 certificate controller for Kubernetes and OpenShift workloads.
+
+  > Manage TLS Certificates in a Cluster - [Kubernetes official doc](https://kubernetes.io/docs/tasks/tls/managing-tls-in-a-cluster/)
+
 ## Kubernetes Security Features
 
 - ✅ Authorization: RBAC
@@ -49,6 +55,7 @@
 
 - ✅ Role-based Access Control - RBAC
   - *Follow the principle of least privilege*
+  - Workload identity in Cloud providers: Employ workload identity to tie RBAC to the cloud provider’s authentication mechanism.
   - Avoid admin-level access in the cluster
       - [AquaSecurity/kubectl-who-can](https://github.com/aquasecurity/kubectl-who-can). Show who has RBAC permissions to perform actions on different resources in Kubernetes.
       - [FairwindsOps/rbac-manager](https://github.com/FairwindsOps/rbac-manager). This is an operator that supports declarative configuration for RBAC with new custom resources.
