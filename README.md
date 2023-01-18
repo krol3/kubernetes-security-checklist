@@ -11,6 +11,7 @@
   - [Kubernetes Networking](#kubernetes-network-security)
   - [Kubernetes Supply Chain Security](#kubernetes-supply-chain-security)
   - [Common attacks](#common-attacks)
+  - [Kubernetes Security Tools](#kubernetes-security-tools)
   - [Kubernetes Security Guides](#kubernetes-security-guides)
   - [Further reading](#further-reading)
   - [Collaborate](#collaborate)
@@ -136,10 +137,6 @@ enables the attacker to mount in the /etc/kubernetes/manifests directory from th
   - ✅ Set limits about traffic in the ingress policy. You can set limits on the number of concurrent connections, the number of requests per second, minute, or hour; the size of request bodies.
 - Fork bomb: Avoid with misconfigurations k8s toolss
 
-## Penetration Kubernetes Tools
-- [Peirates](https://github.com/inguardians/peirates)
-- [Kube-hunter](https://github.com/aquasecurity/kube-hunter)
-
 ## Policy as a code
 OPA allows users to set policies across infrastructure and applications.
 
@@ -160,10 +157,6 @@ Run security validation checks in your CI/CD pipeline. Check the manifest writte
 
 - [x] IaC and automation reduce human error by creating predictable results
 
-#### Tools
-- [FairwindsOps/Polaris](https://github.com/FairwindsOps/Polaris). Validation of best practices in your Kubernetes clusters.
-- [AquaSecurity/appshield](https://github.com/aquasecurity/appshield). Security configuration checks for popular cloud native applications and infrastructure.
-- [Trivy-operator]
 ## Kubernetes Reliability Best Practices
 - Simplicity vs Complexity
   - Service delivery vs traffic routing. Manually maintained DNS entries, Service delivery is required because your application is scaling in and out, and changes are happening at a fast rate.
@@ -186,16 +179,24 @@ Run security validation checks in your CI/CD pipeline. Check the manifest writte
 - Large number of pods that are not in a Running state
 - External-DNS errors registering records
 
+## Kubernetes Security Tools
+- [Penetration tool - Peirates](https://github.com/inguardians/peirates)
+- [Kube-hunter](https://github.com/aquasecurity/kube-hunter)
+- [FairwindsOps/Polaris](https://github.com/FairwindsOps/Polaris). Validation of best practices in your Kubernetes clusters.
+- [Kubescape](https://github.com/kubescape/kubescape)
+- [AquaSecurity/appshield](https://github.com/aquasecurity/appshield). Security configuration checks for popular cloud native applications and infrastructure.
+- [Trivy-operator]
+
+## Kubernetes Security Guides
+- [Kubernetes Hardening Guide by NSA/CISA](https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF)
+- [Containers Matrix by Mitre](https://attack.mitre.org/matrices/enterprise/containers/)
+
 ## Kubernetes CI/CD Artifacts
 - argoCD
 - gitops
 - terraform
 - helm
 - Istio help handling mutual TLS encryption inside the cluster.
-
-## Kubernetes Security Guides
-- [Kubernetes Hardening Guide by NSA/CISA](https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF)
-- [Containers Matrix by Mitre](https://attack.mitre.org/matrices/enterprise/containers/)
 
 ## Further reading:
 - [Fairwinds - Kubernetes Best Practices](https://f.hubspotusercontent40.net/hubfs/2184645/Kubernetes-Best-Practices-WhitePaper.pdf)
