@@ -125,7 +125,8 @@ packet capture (PCAP) in Kubernetes?
   >> The workload wasn’t restricted by the container runtime and has overly permissive Linux capabilities that
 enables the attacker to mount in the /etc/kubernetes/manifests directory from the host into the container.
   >> The attacker then drops a privileged pod manifest in kubelet’s manifest directory. The attacker now has a high-availability, kubelet-managed backdoor into the cluster that supersedes any IAM (identity and access management) or RBAC policies.
-- Fileless attacks
+- Fileless attacks in containers
+  - [Using memfd_create syscall](https://youtu.be/dizRKAjuhS0)
 - SSRF attacks to the Kubernetes API server
 
 - Denial of Service (DoS) or a Distributed Denial of Service (DDoS): Avoid with misconfigurations k8s tools
