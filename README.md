@@ -138,6 +138,7 @@ enables the attacker to mount in the /etc/kubernetes/manifests directory from th
 
 ## Penetration Kubernetes Tools
 - [Peirates](https://github.com/inguardians/peirates)
+- [Kube-hunter](https://github.com/aquasecurity/kube-hunter)
 
 ## Policy as a code
 OPA allows users to set policies across infrastructure and applications.
